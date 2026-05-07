@@ -1,0 +1,11 @@
+# @title Текст заголовка по умолчанию
+import numpy as np
+def boolean_matrix_multiplication(A, B):
+    # Применяем логическое умножение строк и столбцов матриц с помощью операций AND и OR
+    return np.logical_and.reduce(A[:, :, np.newaxis] | B[np.newaxis, :, :], axis=1)
+
+# Пример использования
+A = np.array([[0, 0], [0, 1]])
+B = np.array([[1, 0], [1, 0]])
+C = boolean_matrix_multiplication(A, B)
+print(C)

@@ -1,4 +1,4 @@
-//Диаграмма Хассе
+#Диаграмма Хассе
 import numpy as np
 from hassediagram import plot_hasse
 

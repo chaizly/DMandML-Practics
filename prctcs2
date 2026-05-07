@@ -1,3 +1,4 @@
+# Теория графов 
 from scipy.sparse import csr_array
 from scipy.sparse.csgraph import floyd_warshall
 import networkx as nx

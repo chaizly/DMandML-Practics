@@ -1,0 +1,32 @@
+# Линейное диофантово уравнение ax + by = c
+# c должно быть кратно НОД(a, b)
+# (расширенный алгоритм Евклида)
+
+def gcd_extended(a, b):
+    if a == 0:
+        return b, 0, 1
+    g, x1, y1 = gcd_extended(b % a, a)
+    x = y1 - (b // a) * x1
+    y = x1
+    return g, x, y
+
+def solve(a, b, c):
+    g, x0, y0 = gcd_extended(a, b)
+    
+    if c % g != 0:
+        return "Нет решений (c не кратно НОД(a,b))"
+    
+    # Домножаем на c/g
+    x0 = x0 * (c // g)
+    y0 = y0 * (c // g)
+    
+    a1 = a // g
+    b1 = b // g
+    
+    return f"x = {x0} + {b1}*k,  y = {y0} - {a1}*k"
+
+# Проверка
+print(solve(99, 70, 1))
+print(solve(6, 8, 2))
+print(solve(17, 5, 1))
+print(solve(15, 10, 5))
